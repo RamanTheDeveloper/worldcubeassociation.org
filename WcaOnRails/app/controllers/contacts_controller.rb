@@ -23,6 +23,7 @@ class ContactsController < ApplicationController
     @contact.request = request
     @contact.to_email = "results@worldcubeassociation.org"
     @contact.subject = "WCA DOB change request by #{@contact.name}"
+    @registration_url = get_link_to_regsitration_of_competitor
     maybe_send_email success_url: contact_dob_url, fail_view: :dob
   end
 
