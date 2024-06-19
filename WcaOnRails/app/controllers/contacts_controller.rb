@@ -4,8 +4,7 @@ class ContactsController < ApplicationController
   def website
     @contact = WebsiteContact.new(your_email: current_user&.email, name: current_user&.name,
                                   competition_id: params[:competitionId],
-                                  inquiry: params[:competitionId] ? "competition" : nil)
-    @url = get_link_to_regsitration_of_competitor
+                                  inquiry: params[:competitionId] ? "competition" : nil, url: get_link_to_regsitration_of_competitor)
   end
 
   def website_create
