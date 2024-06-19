@@ -9,12 +9,8 @@
       <%= hidden_field_tag :competition_admin_view, "1" %>
 
       <%= f.input :confirmed, as: :boolean %>
-      <%= f.input :showAtAll %>
+      <%= f.input :showAtAll, as: :boolean %>
     <% else %>
-      <% if is_actually_confirmed %>
-        <% @competition.update(showAtAll: true) unless @competition.showAtAll? %>
-      <% end %>
-
       <% mail_to_wcat = mail_to Team.wcat.email, t(".wcat"), target: "_blank" %>
       <%= if is_actually_confirmed && @competition.showAtAll?
             alert :success, t('.public_and_locked_html')
